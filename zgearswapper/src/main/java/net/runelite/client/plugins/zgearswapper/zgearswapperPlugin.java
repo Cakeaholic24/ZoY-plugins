@@ -361,6 +361,9 @@ public class zgearswapperPlugin extends Plugin
 		{
 			for (WidgetItem item : foodids)
 			{
+				if(item == null){
+					continue;
+				}
 				try
 				{
 					menu.setEntry(new MenuEntry("", "", item.getId(), MenuOpcode.ITEM_FIRST_OPTION.getId(), item.getIndex(), WidgetInfo.INVENTORY.getId(),false));
@@ -375,6 +378,9 @@ public class zgearswapperPlugin extends Plugin
 			}
 			for (WidgetItem item : equipitemids)
 			{
+				if(item == null){
+					continue;
+				}
 				try
 				{
 					menu.setEntry(new MenuEntry("", "", item.getId(), MenuOpcode.ITEM_SECOND_OPTION.getId(), item.getIndex(), WidgetInfo.INVENTORY.getId(),false));
@@ -389,6 +395,9 @@ public class zgearswapperPlugin extends Plugin
 			}
 			for (Integer GearID : playerEquipment)
 			{
+				if(GearID == null){
+					continue;
+				}
 				try
 				{
 					menu.setEntry(new MenuEntry("", "", 1, 57, -1, GearID,false));
@@ -403,6 +412,9 @@ public class zgearswapperPlugin extends Plugin
 			}
 			for (WidgetItem item : inventoryItems)
 			{
+				if(item == null){
+					continue;
+				}
 				if (finalDropitem.getId() == item.getId()) //6512 is empty widget slot
 				{
 						menu.setEntry(new MenuEntry("", "", item.getId(), MenuOpcode.ITEM_FIFTH_OPTION.getId(), item.getIndex(), WidgetInfo.INVENTORY.getId(),false));
