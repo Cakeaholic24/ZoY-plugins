@@ -29,9 +29,9 @@ import java.util.concurrent.ExecutorService;
 @Slf4j
 @Extension
 @PluginDescriptor(
-	name = "Z Keg Balance",
+	name = "UG Keg Balance",
 	description = "An automation utility for Keg Balancing",
-		tags = { "zoy", "key", "custom", "balance", "keg balance" },
+		tags = { "zoy", "key", "custom", "balance", "keg balance","UG" },
 	enabledByDefault = false,
 	type = PluginType.MINIGAME
 )

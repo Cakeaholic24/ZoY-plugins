@@ -29,9 +29,9 @@ import java.util.concurrent.ExecutorService;
 @Slf4j
 @Extension
 @PluginDescriptor(
-	name = "Z Flax Spinner",
+	name = "UG Flax Spinner",
 	description = "An automation utility for Flax Spinning",
-	tags = {"combat", "strength", "hitpoints", "training", "keg", "balance", "warrior", "guild"},
+	tags = {"combat", "strength", "hitpoints", "training", "keg", "balance", "warrior", "guild","UG"},
 	enabledByDefault = false,
 	type = PluginType.MINIGAME
 )

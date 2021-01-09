@@ -59,9 +59,9 @@ import org.pf4j.Extension;
 @Extension
 @PluginDependency(iUtils.class)
 @PluginDescriptor(
-	name = "<html>Z Swapper <font size=\"\" color=\"green\"<b>:)</font></b></html>",
+	name = "<html>UG Swapper <font size=\"\" color=\"green\"<b>:)</font></b></html>",
 	description = "Multiple Swapper that support multiple commands pipelined together.",
-	tags = { "zoy", "swapper", "custom" },
+	tags = { "zoy", "swapper", "custom","UG" },
 	type = PluginType.UTILITY
 )
 @Slf4j
@@ -366,6 +366,7 @@ public class zgearswapperPlugin extends Plugin
 					menu.setEntry(new MenuEntry("", "", item.getId(), MenuOpcode.ITEM_FIRST_OPTION.getId(), item.getIndex(), WidgetInfo.INVENTORY.getId(),false));
 					mouse.click(item.getCanvasBounds());
 					Thread.sleep(getMillis());
+					continue;
 				}
 				catch (InterruptedException e)
 				{
@@ -379,6 +380,7 @@ public class zgearswapperPlugin extends Plugin
 					menu.setEntry(new MenuEntry("", "", item.getId(), MenuOpcode.ITEM_SECOND_OPTION.getId(), item.getIndex(), WidgetInfo.INVENTORY.getId(),false));
 					mouse.click(item.getCanvasBounds());
 					Thread.sleep(getMillis());
+					continue;
 				}
 				catch (InterruptedException e)
 				{
@@ -392,6 +394,7 @@ public class zgearswapperPlugin extends Plugin
 					menu.setEntry(new MenuEntry("", "", 1, 57, -1, GearID,false));
 					mouse.click(client.getMouseCanvasPosition());
 					Thread.sleep(getMillis());
+					continue;
 				}
 				catch (InterruptedException e)
 				{
@@ -491,6 +494,7 @@ public class zgearswapperPlugin extends Plugin
 					}
 					menu.setEntry(new MenuEntry("Attack", "<col=ffffff>" + playerTarget.getName() + "<col=ff3000>  (level-" + playerTarget.getCombatLevel() + ")", playerTarget.getPlayerId(), client.isSpellSelected() ? MenuOpcode.SPELL_CAST_ON_PLAYER.getId() : MenuOpcode.PLAYER_SECOND_OPTION.getId(), 0, 0,false));
 					mouse.click(client.getMouseCanvasPosition());
+					continue;
 				}
 				try
 				{

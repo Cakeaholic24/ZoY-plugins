@@ -30,9 +30,9 @@ import java.time.Instant;
 @Extension
 @PluginDependency(iUtils.class)
 @PluginDescriptor(
-		name = "Z Curse Alch",
+		name = "UG Curse Alch",
 		description = "Curse/Alch plugin",
-		tags = { "zoy", "alch", "mage", "stun" },
+		tags = { "zoy", "alch", "mage", "stun","UG" },
 		enabledByDefault = false,
 		type = PluginType.PVM
 )

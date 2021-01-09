@@ -48,7 +48,7 @@ public class ZFlaxSpinnerOverlay extends Overlay
 		TableComponent tableComponent = new TableComponent();
 		tableComponent.setColumnAlignments(TableAlignment.LEFT);
 
-		tableComponent.addRow("Z Flax Spinner");
+		tableComponent.addRow("UG Flax Spinner");
 		tableComponent.addRow("Status: "+plugin.status);
 
 		if (!tableComponent.isEmpty())

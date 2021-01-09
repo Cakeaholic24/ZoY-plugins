@@ -25,9 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "0.0.5"
+version = "0.0.6"
 
-project.extra["PluginName"] = "Z Curse Alch"
+project.extra["PluginName"] = "UG Curse Alch"
 project.extra["PluginDescription"] = "Auto Curse Alch, that supports high alching item and cursing an NPC"
 
 

@@ -25,9 +25,9 @@ import org.pf4j.Extension;
 @Extension
 @PluginDependency(iUtils.class)
 @PluginDescriptor(
-		name = "<html>Z Food Eater <font size=\"\" color=\"green\"<b>:)</font></b></html>",
+		name = "<html>UG Food Eater <font size=\"\" color=\"green\"<b>:)</font></b></html>",
 		description = "beta.",
-		tags = { "zoy", "food", "custom","Z","eater","auto","eat" },
+		tags = { "zoy", "food", "custom","Z","eater","auto","eat","UG" },
 		type = PluginType.UTILITY
 )
 @Slf4j

@@ -23,9 +23,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "0.0.4"
+version = "0.0.5"
 
-project.extra["PluginName"] = "Z Keg Balance"
+project.extra["PluginName"] = "UG Keg Balance"
 project.extra["PluginDescription"] = "An automation utility for Keg Balancing"
 
 tasks {
