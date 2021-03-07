@@ -25,14 +25,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "0.1.2"
+version = "0.1.4"
 
 project.extra["PluginName"] = "UG Food Eater"
 project.extra["PluginDescription"] = "Can do Lots of things combined."
 
 
 dependencies {
-    compileOnly(group = "com.openosrs.externals", name = "iutils", version = "2.3.6+")
+    compileOnly(group = "com.openosrs.externals", name = "iutils", version = "+")
 }
 
 tasks {

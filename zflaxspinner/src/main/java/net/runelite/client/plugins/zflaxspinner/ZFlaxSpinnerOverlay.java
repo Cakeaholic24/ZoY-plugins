@@ -4,7 +4,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import javax.inject.Inject;
 import net.runelite.api.Client;
-import static net.runelite.api.MenuOpcode.RUNELITE_OVERLAY_CONFIG;
+import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
 
 import net.runelite.client.ui.overlay.Overlay;
 import static net.runelite.client.ui.overlay.OverlayManager.OPTION_CONFIGURE;
@@ -12,8 +12,8 @@ import net.runelite.client.ui.overlay.OverlayMenuEntry;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
 import net.runelite.client.ui.overlay.components.PanelComponent;
-import net.runelite.client.ui.overlay.components.table.TableAlignment;
-import net.runelite.client.ui.overlay.components.table.TableComponent;
+import com.openosrs.client.ui.overlay.components.table.TableComponent;
+import com.openosrs.client.ui.overlay.components.table.TableAlignment;
 
 public class ZFlaxSpinnerOverlay extends Overlay
 {

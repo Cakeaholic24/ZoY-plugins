@@ -11,7 +11,6 @@ import net.runelite.api.widgets.WidgetItem;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
-import net.runelite.client.plugins.PluginType;
 import net.runelite.client.plugins.iutils.*;
 
 import com.google.inject.Provides;
@@ -25,10 +24,9 @@ import org.pf4j.Extension;
 @Extension
 @PluginDependency(iUtils.class)
 @PluginDescriptor(
-		name = "<html>UG Food Eater <font size=\"\" color=\"green\"<b>:)</font></b></html>",
+		name = "UG Food Eater",
 		description = "beta.",
-		tags = { "zoy", "food", "custom","Z","eater","auto","eat","UG" },
-		type = PluginType.UTILITY
+		tags = { "zoy", "food", "custom","Z","eater","auto","eat","UG" }
 )
 @Slf4j
 public class zfoodeaterPlugin extends Plugin
@@ -100,7 +98,7 @@ public class zfoodeaterPlugin extends Plugin
 			if (item != null)
 			{
 				sleep += calculationUtils.getRandomIntBetweenRange(config.randLow(), config.randHigh());
-				utils.doItemActionMsTime(item, MenuOpcode.ITEM_FIRST_OPTION.getId(), WidgetInfo.INVENTORY.getId(), sleep);
+				utils.doItemActionMsTime(item, MenuAction.ITEM_FIRST_OPTION.getId(), WidgetInfo.INVENTORY.getId(), sleep);
 			}
 		}
 		foodids.clear();
@@ -137,7 +135,7 @@ public class zfoodeaterPlugin extends Plugin
 				if (item != null)
 				{
 					sleep += calculationUtils.getRandomIntBetweenRange(config.randLow(), config.randHigh());
-					utils.doItemActionMsTime(item, MenuOpcode.ITEM_FIRST_OPTION.getId(), WidgetInfo.INVENTORY.getId(), sleep);
+					utils.doItemActionMsTime(item, MenuAction.ITEM_FIRST_OPTION.getId(), WidgetInfo.INVENTORY.getId(), sleep);
 				}
 			}
 			foodids.clear();

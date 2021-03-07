@@ -1,6 +1,6 @@
 package net.runelite.client.plugins.zcursealch;
 
-import static net.runelite.api.MenuOpcode.RUNELITE_OVERLAY_CONFIG;
+import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
 import static net.runelite.client.ui.overlay.OverlayManager.OPTION_CONFIGURE;
 
 import java.awt.Color;
@@ -16,8 +16,8 @@ import net.runelite.client.ui.overlay.OverlayMenuEntry;
 import net.runelite.client.ui.overlay.OverlayPanel;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayUtil;
-import net.runelite.client.ui.overlay.components.table.TableAlignment;
-import net.runelite.client.ui.overlay.components.table.TableComponent;
+import com.openosrs.client.ui.overlay.components.table.TableAlignment;
+import com.openosrs.client.ui.overlay.components.table.TableComponent;
 
 @Slf4j
 @Singleton
@@ -50,9 +50,9 @@ class zcursealchnpcOverlay extends OverlayPanel
 		if (this.plugin.splashNPC1 != null) {
 			clickbox = Perspective.getClickbox(this.client, this.plugin.splashNPC1.getModel(), this.plugin.splashNPC1.getOrientation(), this.plugin.splashNPC1.getLocalLocation());
 			if (clickbox != null) {
-				OverlayUtil.renderClickBox(graphics, this.mouse(), clickbox, Color.CYAN);
+				OverlayUtil.renderHoverableArea(graphics, clickbox, this.mouse(), Color.CYAN, Color.BLACK, Color.blue);
 			} else {
-				OverlayUtil.renderNpcOverlay(graphics, this.plugin.splashNPC1, Color.CYAN, 1, 100, 80, this.client);
+				OverlayUtil.renderActorOverlay(graphics, this.plugin.splashNPC1.getInteracting(), "", Color.CYAN);
 			}
 		}
         return super.render(graphics);

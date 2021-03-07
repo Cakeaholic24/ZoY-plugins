@@ -13,7 +13,6 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.PluginType;
 import net.runelite.api.events.MenuOptionClicked;
 import net.runelite.api.Client;
 import net.runelite.api.MenuEntry;
@@ -33,8 +32,7 @@ import java.time.Instant;
 		name = "UG Curse Alch",
 		description = "Curse/Alch plugin",
 		tags = { "zoy", "alch", "mage", "stun","UG" },
-		enabledByDefault = false,
-		type = PluginType.PVM
+		enabledByDefault = false
 )
 @Slf4j
 public class zcursealchPlugin extends Plugin {
@@ -219,7 +217,7 @@ public class zcursealchPlugin extends Plugin {
 				{
 					return;
 				}
-				entry = new MenuEntry("Cast", "", splashNPC.getIndex(), MenuOpcode.SPELL_CAST_ON_NPC.getId(),
+				entry = new MenuEntry("Cast", "", splashNPC.getIndex(), MenuAction.SPELL_CAST_ON_NPC.getId(),
 					0, 0, false);
 				utils.oneClickCastSpell(selectedSpell.getSpell(), entry, splashNPC.getConvexHull().getBounds(), sleepDelay());
 				dostun = false;
@@ -245,7 +243,7 @@ public class zcursealchPlugin extends Plugin {
 				}
 				break;
 			case Alch_ITEM:
-				entry = new MenuEntry("Cast", "", targetItem.getId(), MenuOpcode.ITEM_USE_ON_WIDGET.getId(), targetItem.getIndex(), 9764864, true);
+				entry = new MenuEntry("Cast", "", targetItem.getId(), MenuAction.ITEM_USE_ON_WIDGET.getId(), targetItem.getIndex(), 9764864, true);
 				utils.oneClickCastSpell(WidgetInfo.SPELL_HIGH_LEVEL_ALCHEMY, entry, targetItem.getCanvasBounds().getBounds(), sleepDelay());
 				doalch = false;
 				dostun = true;

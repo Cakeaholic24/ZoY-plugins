@@ -19,7 +19,6 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.PluginType;
 import net.runelite.client.plugins.zkegbalance.Tasks.*;
 import net.runelite.client.ui.overlay.OverlayManager;
 import org.pf4j.Extension;
@@ -32,8 +31,7 @@ import java.util.concurrent.ExecutorService;
 	name = "UG Keg Balance",
 	description = "An automation utility for Keg Balancing",
 		tags = { "zoy", "key", "custom", "balance", "keg balance","UG" },
-	enabledByDefault = false,
-	type = PluginType.MINIGAME
+	enabledByDefault = false
 )
 public class ZKegBalancePlugin extends Plugin
 {

@@ -13,10 +13,7 @@ public interface ZKegBalanceConfig extends Config {
 		description = "Configure how the bot handles game tick delays, 1 game tick equates to roughly 600ms",
 		position = 1
 	)
-	default boolean Config()
-	{
-		return false;
-	}
+	String Config = "Config";
 
 	@Range(
 		min = 0,
@@ -52,10 +49,8 @@ public interface ZKegBalanceConfig extends Config {
 			description = "Configure how the bot handles game tick delays, 1 game tick equates to roughly 600ms",
 			position = 1
 	)
-	default boolean delayTickConfig()
-	{
-		return false;
-	}
+	String delayTickConfig = "delayTickConfig";
+
 
 	@Range(
 			min = 0,

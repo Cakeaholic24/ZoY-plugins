@@ -19,7 +19,6 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.PluginType;
 import net.runelite.client.plugins.zflaxspinner.Tasks.*;
 import net.runelite.client.ui.overlay.OverlayManager;
 import org.pf4j.Extension;
@@ -32,8 +31,7 @@ import java.util.concurrent.ExecutorService;
 	name = "UG Flax Spinner",
 	description = "An automation utility for Flax Spinning",
 	tags = {"combat", "strength", "hitpoints", "training", "keg", "balance", "warrior", "guild","UG"},
-	enabledByDefault = false,
-	type = PluginType.MINIGAME
+	enabledByDefault = false
 )
 public class ZFlaxSpinnerPlugin extends Plugin
 {

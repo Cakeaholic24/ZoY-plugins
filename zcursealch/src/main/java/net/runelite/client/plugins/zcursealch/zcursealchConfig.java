@@ -47,10 +47,7 @@ import net.runelite.client.config.ConfigSection;
 		description = "Configure how the bot handles sleep delays",
 		position = 5
 	)
-	default boolean delayConfig()
-	{
-		return false;
-	}
+	String delayConfig = "delayConfig";
 
 	@Range(
 		min = 0,

@@ -175,7 +175,7 @@ public class MiscUtils {
 	{
 		executorService.submit(() ->
 		{
-			targetMenu = new MenuEntry("Withdraw-All", "", 7, MenuOpcode.CC_OP.getId(), bankItemWidget.getIndex(), 786444, false);
+			targetMenu = new MenuEntry("Withdraw-All", "", 7, MenuAction.CC_OP.getId(), bankItemWidget.getIndex(), 786444, false);
 			click();
 		});
 	}
@@ -212,7 +212,7 @@ public class MiscUtils {
 		if (staminaPotion != null)
 		{
 			log.info("using stamina potion");
-			targetMenu = new MenuEntry("", "", staminaPotion.getId(), MenuOpcode.ITEM_FIRST_OPTION.getId(), staminaPotion.getIndex(), 9764864, false);
+			targetMenu = new MenuEntry("", "", staminaPotion.getId(), MenuAction.ITEM_FIRST_OPTION.getId(), staminaPotion.getIndex(), 9764864, false);
 			click(staminaPotion.getCanvasBounds(), delay);
 			return true;
 		}
@@ -264,7 +264,7 @@ public class MiscUtils {
 	{
 		executorService.submit(() ->
 		{
-		targetMenu = new MenuEntry("open", "", gameObject.getId(), MenuOpcode.GAME_OBJECT_SECOND_OPTION.getId(), gameObject.getLocalLocation().getSceneX(), gameObject.getLocalLocation().getSceneY(), false);
+		targetMenu = new MenuEntry("open", "", gameObject.getId(), MenuAction.GAME_OBJECT_SECOND_OPTION.getId(), gameObject.getLocalLocation().getSceneX(), gameObject.getLocalLocation().getSceneY(), false);
 		click();
 		});
 	}
@@ -283,7 +283,7 @@ public class MiscUtils {
 	{
 		executorService.submit(() ->
 		{
-			targetMenu = new MenuEntry("Climb-down", "", gameObject.getId(), MenuOpcode.GAME_OBJECT_THIRD_OPTION.getId(), gameObject.getLocalLocation().getSceneX()-1, gameObject.getLocalLocation().getSceneY()-1, false);
+			targetMenu = new MenuEntry("Climb-down", "", gameObject.getId(), MenuAction.GAME_OBJECT_THIRD_OPTION.getId(), gameObject.getLocalLocation().getSceneX()-1, gameObject.getLocalLocation().getSceneY()-1, false);
 			click();
 		});
 	}
@@ -301,7 +301,7 @@ public class MiscUtils {
 	{
 		executorService.submit(() ->
 		{
-			targetMenu = new MenuEntry("", "", wallObject.getId(), MenuOpcode.GAME_OBJECT_FIRST_OPTION.getId(), wallObject.getLocalLocation().getSceneX(), wallObject.getLocalLocation().getSceneY(), false);
+			targetMenu = new MenuEntry("", "", wallObject.getId(), MenuAction.GAME_OBJECT_FIRST_OPTION.getId(), wallObject.getLocalLocation().getSceneX(), wallObject.getLocalLocation().getSceneY(), false);
 			click();
 		});
 	}
@@ -310,7 +310,7 @@ public class MiscUtils {
 	{
 		executorService.submit(() ->
 		{
-			targetMenu = new MenuEntry("", "", gameObject.getId(), MenuOpcode.GAME_OBJECT_FIRST_OPTION.getId(), gameObject.getSceneMinLocation().getX(), gameObject.getSceneMinLocation().getY(), false);
+			targetMenu = new MenuEntry("", "", gameObject.getId(), MenuAction.GAME_OBJECT_FIRST_OPTION.getId(), gameObject.getSceneMinLocation().getX(), gameObject.getSceneMinLocation().getY(), false);
 			click();
 		});
 	}
@@ -442,7 +442,7 @@ public class MiscUtils {
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded event)
 	{
-		if (event.getOpcode() == MenuOpcode.CC_OP.getId() && (event.getParam1() == WidgetInfo.WORLD_SWITCHER_LIST.getId() ||
+		if (event.getOpcode() == MenuAction.CC_OP.getId() && (event.getParam1() == WidgetInfo.WORLD_SWITCHER_LIST.getId() ||
 				event.getParam1() == 11927560 || event.getParam1() == 4522007 || event.getParam1() == 24772686))
 		{
 			return;
