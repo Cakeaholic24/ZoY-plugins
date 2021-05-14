@@ -20,16 +20,17 @@ import net.runelite.client.config.ConfigSection;
         return 0;
     }
 
-    @ConfigItem(
-            keyName = "itemID",
-            name = "Item ID",
-            description = "Provide ID of the item to High Alc",
-            position = 2
-    )
-    default int itemID()
-    {
-        return 0;
-    }
+	@ConfigItem(
+			keyName = "itemID",
+			name = "Item ID",
+			description = "Provide IDs of the item to High Alch seperated by a comma with no spaces<br> e.g. - 1111,2222,3333",
+			position = 2
+	)
+	default String itemIDs()
+	{
+		return "";
+	}
+
 	@ConfigItem(
 		keyName = "getSpell",
 		name = "Spell",
@@ -143,4 +144,12 @@ import net.runelite.client.config.ConfigSection;
 		position = 31
 	)
 	default boolean logout() { return true; }
+
+	@ConfigItem(
+			keyName = "logoutNoAlchs",
+			name = "Logout when out of items",
+			description = "Enable to logout when out of alchable items. Won't work if you are attacking an npc that attacks you",
+			position = 32
+	)
+	default boolean logoutOnNoAlchs() { return true; }
 }

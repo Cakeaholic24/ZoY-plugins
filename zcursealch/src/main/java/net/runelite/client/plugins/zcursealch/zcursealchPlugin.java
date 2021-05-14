@@ -25,6 +25,7 @@ import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.ui.overlay.OverlayManager;
 
 import java.time.Instant;
+import java.util.ArrayList;
 
 @Extension
 @PluginDependency(iUtils.class)
@@ -84,7 +85,7 @@ public class zcursealchPlugin extends Plugin {
 	private boolean doalch;
 	private MenuEntry entry;
 
-	int itemID = -1;
+	String itemIDs = "";
 	int timeout = 0;
 	long sleepLength = 0;
 	boolean startcursealch;
@@ -98,19 +99,19 @@ public class zcursealchPlugin extends Plugin {
 		doalch = false;
 		dostun = false;
 		botTimer = Instant.now();
-		itemID = config.itemID();
+		itemIDs = config.itemIDs().trim();
 		overlayManager.add(overlay);
 		overlayManager.add(npcoverlay);
 		utils.sendGameMessage("Plugin Started");
 	}
-	
+
 	@Override
 	protected void shutDown() throws Exception {
 		doalch = false;
 		dostun = false;
 		botTimer = null;
 		startcursealch = false;
-		itemID = -1;
+		itemIDs = "";
 		timeout = 0;
 		overlayManager.remove(overlay);
 		overlayManager.remove(npcoverlay);
@@ -137,8 +138,8 @@ public class zcursealchPlugin extends Plugin {
 				log.debug("NPC ID set to {}", config.npcID());
 				break;
 			case "itemID":
-				itemID = config.itemID();
-				log.debug("Item ID set to {}", config.itemID());
+				itemIDs = config.itemIDs().trim();
+				log.debug("Item ID set to {}", config.itemIDs());
 				break;
 			case "getSpell":
 				selectedSpell = config.getSpell();
@@ -191,7 +192,22 @@ public class zcursealchPlugin extends Plugin {
 		}
 		if(doalch){
 			targetItem = getItem();
-			return Alch_ITEM;
+			if(targetItem != null){
+				return Alch_ITEM;
+			}
+			if(config.logoutOnNoAlchs()){
+				startcursealch = false;
+				doalch = false;
+				dostun = false;
+				state = null;
+				botTimer = Instant.now();
+				overlayManager.remove(overlay);
+				overlayManager.remove(npcoverlay);
+				utils.sendGameMessage("Out of alchable items, logging out, plugin stopping.");
+				interfaceutils.logout();
+				return IDLING;
+			}
+			return IDLING;
 		}
 		if(splashNPC != null && !doalch && !dostun){
 			dostun = true;
@@ -218,7 +234,7 @@ public class zcursealchPlugin extends Plugin {
 					return;
 				}
 				entry = new MenuEntry("Cast", "", splashNPC.getIndex(), MenuAction.SPELL_CAST_ON_NPC.getId(),
-					0, 0, false);
+						0, 0, false);
 				utils.oneClickCastSpell(selectedSpell.getSpell(), entry, splashNPC.getConvexHull().getBounds(), sleepDelay());
 				dostun = false;
 				doalch = true;
@@ -286,8 +302,18 @@ public class zcursealchPlugin extends Plugin {
 
 	private WidgetItem getItem()
 	{
+		ArrayList<Integer> itemIDsInt = new ArrayList<>();
 		log.debug("finding item");
-		return inventory.getWidgetItem(itemID);
+		if(itemIDs.length() > 0) {
+			for (String item : itemIDs.split(",")){
+				try {
+					itemIDsInt.add(Integer.parseInt(item.trim()));
+				} catch (NumberFormatException e) {
+					//dont care
+				}
+			}
+		}
+		return inventory.getWidgetItem(itemIDsInt);
 	}
 
 	private long sleepDelay()
